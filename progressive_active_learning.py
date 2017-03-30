@@ -129,7 +129,7 @@ if __name__ == "__main__":
         stats_dict[filename]["std_evals"] = np.std(evals)
 
     import pickle
-    pickle.dump(evals_dict, "./PickleLocker/ActiveLearning_Evals.p")
-    pickle.dump(rank_diffs_dict, "./PickleLocker/ActiveLearning_Rank_Diff.p")
-    pickle.dump(stats_dict, "./PickleLocker/ActiveLearning_Stats.p")
+    pickle.dump(evals_dict, open("./PickleLocker/ActiveLearning_Evals.p", "w"))
+    pickle.dump(rank_diffs_dict, open("./PickleLocker/ActiveLearning_Rank_Diff.p", "w"))
+    pickle.dump(stats_dict, open("./PickleLocker/ActiveLearning_Stats.p", "w"))
 
