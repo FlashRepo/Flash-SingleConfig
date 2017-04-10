@@ -1,0 +1,176 @@
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS1} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    34.0  &  5.0 & \quart{0}{6}{3}{0} \\
+\hline  2 &       P-MMRE &    66.0  &  12.0 & \quart{38}{15}{44}{0} \\
+\hline  3 &       P-Rank &    77.0  &  25.0 & \quart{48}{31}{58}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS2} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    46.0  &  7.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &       P-Rank &    552.0  &  27.0 & \quart{75}{4}{77}{0} \\
+  2 &       P-MMRE &    565.0  &  12.0 & \quart{78}{1}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS3} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    43.0  &  6.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    501.0  &  16.0 & \quart{66}{2}{66}{0} \\
+\hline  3 &       P-MMRE &    583.0  &  39.0 & \quart{74}{5}{78}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS4} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    40.0  &  12.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    725.0  &  19.0 & \quart{47}{1}{47}{0} \\
+\hline  3 &       P-MMRE &    1124.0  &  73.0 & \quart{74}{5}{75}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS5} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    32.0  &  8.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-MMRE &    950.0  &  0.0 & \quart{77}{0}{77}{0} \\
+\hline  3 &       P-Rank &    965.0  &  16.0 & \quart{78}{1}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS6} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    30.0  &  5.0 & \quart{0}{7}{0}{0} \\
+\hline  2 &       P-MMRE &    61.0  &  10.0 & \quart{43}{15}{46}{0} \\
+\hline  3 &       P-Rank &    71.0  &  16.0 & \quart{55}{24}{61}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS7} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    41.0  &  5.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &       P-MMRE &    252.0  &  5.0 & \quart{67}{1}{67}{0} \\
+\hline  3 &       P-Rank &    268.0  &  32.0 & \quart{69}{10}{72}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS8} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    35.0  &  13.0 & \quart{0}{5}{1}{0} \\
+\hline  2 &       P-Rank &    123.0  &  14.0 & \quart{34}{6}{36}{0} \\
+\hline  3 &       P-MMRE &    189.0  &  58.0 & \quart{56}{23}{62}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS9} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    38.0  &  9.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    817.0  &  38.0 & \quart{38}{1}{39}{0} \\
+\hline  3 &       P-MMRE &    1503.0  &  214.0 & \quart{69}{10}{73}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS10} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    39.0  &  7.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    807.0  &  44.0 & \quart{37}{2}{38}{0} \\
+\hline  3 &       P-MMRE &    1572.0  &  290.0 & \quart{65}{14}{75}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS11} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    40.0  &  9.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    615.0  &  22.0 & \quart{26}{1}{27}{0} \\
+\hline  3 &       P-MMRE &    1728.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS12} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    43.0  &  14.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    615.0  &  22.0 & \quart{26}{1}{27}{0} \\
+\hline  3 &       P-MMRE &    1726.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS13} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    34.0  &  2.0 & \quart{0}{3}{1}{0} \\
+\hline  2 &       P-Rank &    71.0  &  14.0 & \quart{57}{22}{62}{0} \\
+  2 &       P-MMRE &    73.0  &  13.0 & \quart{57}{21}{65}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS14} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    36.0  &  5.0 & \quart{0}{4}{2}{0} \\
+\hline  2 &       P-Rank &    76.0  &  19.0 & \quart{30}{16}{36}{0} \\
+\hline  3 &       P-MMRE &    105.0  &  35.0 & \quart{49}{30}{61}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS15} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    36.0  &  9.0 & \quart{0}{7}{3}{0} \\
+\hline  2 &       P-Rank &    74.0  &  8.0 & \quart{30}{7}{35}{0} \\
+\hline  3 &       P-MMRE &    126.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS16} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    36.0  &  5.0 & \quart{0}{4}{2}{0} \\
+\hline  2 &       P-Rank &    72.0  &  15.0 & \quart{28}{13}{33}{0} \\
+\hline  3 &       P-MMRE &    111.0  &  25.0 & \quart{58}{21}{67}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS17} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    35.0  &  9.0 & \quart{0}{7}{4}{0} \\
+\hline  2 &       P-Rank &    68.0  &  17.0 & \quart{29}{15}{31}{0} \\
+\hline  3 &       P-MMRE &    126.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS18} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    35.0  &  4.0 & \quart{0}{3}{0}{0} \\
+\hline  2 &       P-Rank &    72.0  &  17.0 & \quart{29}{15}{33}{0} \\
+\hline  3 &       P-MMRE &    126.0  &  10.0 & \quart{71}{8}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS19} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    32.0  &  3.0 & \quart{0}{2}{0}{0} \\
+\hline  2 &       P-Rank &    67.0  &  10.0 & \quart{29}{8}{30}{0} \\
+\hline  3 &       P-MMRE &    126.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS20} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    37.0  &  5.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    185.0  &  24.0 & \quart{26}{4}{28}{0} \\
+\hline  3 &       P-MMRE &    462.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS21} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    40.0  &  13.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &       P-Rank &    618.0  &  25.0 & \quart{44}{2}{45}{0} \\
+\hline  3 &       P-MMRE &    985.0  &  137.0 & \quart{69}{10}{74}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS22} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &      AL-Rank &    41.0  &  12.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &       P-Rank &    615.0  &  14.0 & \quart{46}{1}{47}{0} \\
+\hline  3 &       P-MMRE &    965.0  &  111.0 & \quart{70}{9}{75}{0} \\
+\hline \end{tabular}}
