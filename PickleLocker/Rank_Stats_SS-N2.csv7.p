@@ -1,0 +1,17 @@
+(dp0
+S'./Data/SS-N2.csv'
+p1
+(dp2
+S'evals'
+p3
+(lp4
+I13853
+asS'rank_diff'
+p5
+(lp6
+I0
+asS'testsize'
+p7
+(lp8
+I42929
+ass.
