@@ -71,7 +71,7 @@ def wrapper_mre_progressive(train_set, validation_set, threshold=0.1):
     shuffle(training_indexes)
     sub_train_set = [train_set[i] for i in training_indexes[:initial_size]]
     steps = 0
-    while (initial_size+steps) < len(train_set) - 1:
+    while (initial_size+(2*steps)) < len(train_set) - 1:
         print "size of sub_train: ", len(sub_train_set)
         mre_returned = mre_progressive(sub_train_set, validation_set)
         if mre_returned < threshold: break
