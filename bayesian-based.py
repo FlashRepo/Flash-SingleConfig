@@ -105,7 +105,15 @@ def wrapper_run_active_learning(filename, initial_size):
 
 if __name__ == "__main__":
     import time
-    filenames = ["./Data/"+f for f in listdir("./Data") if '.csv' in f]
+    # filenames = ["./Data/"+f for f in listdir("./Data") if '.csv' in f]
+    filenames = [
+        # './Data/SS-A1.csv', './Data/SS-A2.csv', './Data/SS-B1.csv', './Data/SS-B2.csv', './Data/SS-C1.csv',
+        #  './Data/SS-C2.csv', './Data/SS-D1.csv', './Data/SS-D2.csv', './Data/SS-E1.csv', './Data/SS-E2.csv',
+        #  './Data/SS-F1.csv', './Data/SS-F2.csv', './Data/SS-G1.csv', './Data/SS-G2.csv', './Data/SS-H1.csv',
+        #  './Data/SS-H2.csv', './Data/SS-I1.csv', './Data/SS-I2.csv', './Data/SS-J1.csv', './Data/SS-J2.csv',
+        #  './Data/SS-K1.csv', './Data/SS-K2.csv', './Data/SS-L1.csv', './Data/SS-L2.csv',
+        './Data/SS-M1.csv',
+        './Data/SS-M2.csv', './Data/SS-N1.csv', './Data/SS-N2.csv', './Data/SS-O1.csv', './Data/SS-O2.csv']
     initial_size = 20
     stats_dict = {}
     for filename in filenames:
