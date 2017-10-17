@@ -24,8 +24,9 @@ for f in files:
         residual[name] = f
     print name
 
-names = sorted(rank.keys())
+names = sorted(residual.keys())
 data = []
+data1 = []
 for name in names:
     key = './Data/' + name + '.csv'
     res = pickle.load( open(residual[name], "rb" ) )[key]
@@ -33,6 +34,10 @@ for name in names:
     flsh = pickle.load( open( bayesian[name], "rb" ) )[key]
 
     data.append([name, mean(res['rank_diff']), mean(rnk['rank_diff']), mean(flsh['rank_diff'])])
+    data1.append([name, mean(res['evals']), mean(rnk['evals']), mean(flsh['evals'])])
+
+for d in data: print d
+# for d in data1: print d
 
 gap = 35
 
@@ -46,11 +51,11 @@ f, ((ax1, ax2, ax3)) = plt.subplots(1, 3)
 print ">> ", len([d[2] for d in data if 5 < d [-1] <= 10.5]), len([5*(i+1) for i in xrange(4, 13)])
 
 ax1.scatter([gap*(i+1) for i in xrange(len(data))], [d[1] for d in data], marker='v', color='#228B22')
-ax1.set_xlim(10, 870)
+# ax1.set_xlim(10, 870)
 ax2.scatter([gap*(i+1) for i in xrange(len(data))], [d[2] for d in data], marker='v', color='#228B22')
-ax2.set_xlim(10, 870)
+# ax2.set_xlim(10, 870)
 ax3.scatter([gap*(i+1) for i in xrange(len(data))], [d[3] for d in data], marker='v', color='#228B22')
-ax3.set_xlim(10, 870)
+# ax3.set_xlim(10, 870)
 # # for dumb learner
 # ax1.scatter([gap*(i+1) for i in xrange(0, 4)], [d[2] for d in data if d [-1] <= 5], color='#228B22', marker='v', s=34)
 # ax1.scatter([gap*(i+1) for i in xrange(4, 13)], [d[2] for d in data if 5 < d [-1] <= 10.5], color='y', marker='o', s=34)
