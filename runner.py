@@ -65,6 +65,5 @@ files = [
 ]
 
 for file in files:
-    cmd = "'python " + file + "&',"
-    # os.system(cmd)
-    print cmd
+    os.system(file)
+    # print file
