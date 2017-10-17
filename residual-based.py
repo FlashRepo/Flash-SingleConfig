@@ -8,7 +8,7 @@ from policies import policy1, policy2
 import numpy as np
 import time
 import matplotlib.pyplot as plt
-
+import pickle
 
 
 class solution_holder:
@@ -21,9 +21,9 @@ class solution_holder:
 
 def split_data(filename):
     pdcontent = pd.read_csv(filename)
-    indepcolumns = [col for col in pdcontent.columns if "$<" not in col]
-    depcolumns = [col for col in pdcontent.columns if "$<" in col]
-    sortpdcontent = pdcontent.sort_values(by=depcolumns[-1])
+    indepcolumns = [col for col in pdcontent.columns if "<$" not in col]
+    depcolumns = [col for col in pdcontent.columns if "<$" in col]
+    sortpdcontent = pdcontent.sort(depcolumns[-1])
     content = list()
     ranks = {}
     for i, item in enumerate(sorted(set(sortpdcontent[depcolumns[-1]].tolist()))):
@@ -65,43 +65,6 @@ def mre_progressive(train, test, threshold=0.1):
     return np.mean(mre)
 
 
-def rank_progressive(train, test, threshold=4):
-    train_independent = [t.decision for t in train]
-    train_dependent = [t.objective[-1] for t in train]
-
-    sorted_test = sorted(test, key=lambda x: x.objective[-1])
-    for r,st in enumerate(sorted_test): st.rank = r
-    test_independent = [t.decision for t in sorted_test]
-    test_dependent = [t.objective[-1] for t in sorted_test]
-
-    model = DecisionTreeRegressor()
-    model.fit(train_independent, train_dependent)
-    predicted = model.predict(test_independent)
-    predicted_id = [[i,p] for i,p in enumerate(predicted)]
-    predicted_sorted = sorted(predicted_id, key=lambda x: x[-1])
-    # assigning predicted ranks
-    predicted_rank_sorted = [[p[0], p[-1], i] for i,p in enumerate(predicted_sorted)]
-    rank_diffs = [abs(p[0] - p[-1]) for p in predicted_rank_sorted]
-    return np.mean(rank_diffs)
-
-
-def wrapper_rank_progressive(train_set, validation_set):
-    initial_size = 10
-    training_indexes = range(len(train_set))
-    shuffle(training_indexes)
-    sub_train_set = [train_set[i] for i in training_indexes[:initial_size]]
-    steps = 0
-    rank_diffs = []
-    while (initial_size+steps) < len(train_set) - 1:
-        rank_diffs.append(rank_progressive(sub_train_set, validation_set))
-        policy_result = policy1(rank_diffs)
-        if policy_result != -1: break
-        steps += 1
-        sub_train_set.append(train_set[initial_size+steps])
-
-    return sub_train_set
-
-
 def wrapper_mre_progressive(train_set, validation_set, threshold=0.1):
     initial_size = 10
     training_indexes = range(len(train_set))
@@ -109,10 +72,12 @@ def wrapper_mre_progressive(train_set, validation_set, threshold=0.1):
     sub_train_set = [train_set[i] for i in training_indexes[:initial_size]]
     steps = 0
     while (initial_size+steps) < len(train_set) - 1:
+        print "size of sub_train: ", len(sub_train_set)
         mre_returned = mre_progressive(sub_train_set, validation_set)
         if mre_returned < threshold: break
-        steps += 1
-        sub_train_set.append(train_set[initial_size+steps])
+        steps += 50
+        for i in xrange(steps-50, steps):
+            sub_train_set.append(train_set[initial_size+i])
 
     return sub_train_set
 
@@ -138,47 +103,53 @@ def find_lowest_rank(train, test, bracket=10):
     select_few = predicted_rank_sorted[:10]
     return [sf[0] for sf in select_few]
 
-
-
 if __name__ == "__main__":
+    import time
     datafolder = "./Data/"
     evals_dict = {}
     rank_diffs_dict = {}
     stats_dict = {}
-    files = [datafolder + f for f in listdir(datafolder)]
+    # files = [datafolder + f for f in listdir(datafolder) if '.csv' in f]
+    files = [
+            # './Data/SS-A1.csv', './Data/SS-A2.csv', './Data/SS-B1.csv', './Data/SS-B2.csv', './Data/SS-C1.csv',
+            #  './Data/SS-C2.csv', './Data/SS-D1.csv', './Data/SS-D2.csv', './Data/SS-E1.csv', './Data/SS-E2.csv',
+            #  './Data/SS-F1.csv', './Data/SS-F2.csv', './Data/SS-G1.csv', './Data/SS-G2.csv', './Data/SS-H1.csv',
+            #  './Data/SS-H2.csv', './Data/SS-I1.csv', './Data/SS-I2.csv', './Data/SS-J1.csv', './Data/SS-J2.csv',
+            #  './Data/SS-K1.csv', './Data/SS-K2.csv', './Data/SS-L1.csv', './Data/SS-L2.csv',
+             './Data/SS-M1.csv',
+             './Data/SS-M2.csv', './Data/SS-N1.csv', './Data/SS-N2.csv', './Data/SS-O1.csv', './Data/SS-O2.csv']
+
     for file in files:
-        print file
+        initial_time = time.time()
         evals_dict[file] = []
         rank_diffs_dict[file] = []
         stats_dict[file] = {}
-        rank_rank_diffs = []
-        rank_evals = []
-        for _ in xrange(20):
+        mmre_rank_diffs = []
+        mmre_evals = []
+        size_of_test_set = []
+        print file + " | ",
+        for _ in xrange(30):
             print "+ ",
             datasets = split_data(file)
             train_set = datasets[0]
             validation_set = datasets[1]
             test_set = datasets[2]
-            sub_train_set_rank = wrapper_rank_progressive(train_set, validation_set)
-            lowest_rank = find_lowest_rank(sub_train_set_rank, test_set)
-            len_rank_train_set =  len(sub_train_set_rank)
-            min_rank_prog = min(lowest_rank)
-            rank_rank_diffs.append(min_rank_prog)
-            rank_evals.append(len_rank_train_set + len(validation_set) + 10)
 
-        evals_dict[file] = rank_evals
-        rank_diffs_dict[file] = rank_rank_diffs
-        stats_dict[file]["mean_rank_diff"] = np.mean(rank_rank_diffs)
-        stats_dict[file]["std_rank_diff"] = np.std(rank_rank_diffs)
-        stats_dict[file]["mean_evals"] = np.mean(rank_evals)
-        stats_dict[file]["std_evals"] = np.std(rank_evals)
+            sub_train_set_rank = wrapper_mre_progressive(train_set, validation_set)
+            lowest_rank = find_lowest_rank(sub_train_set_rank, train_set+test_set)
+            len_mre_train_set = len(sub_train_set_rank)
+            min_mre_prog = min(lowest_rank)
+            mmre_rank_diffs.append(min_mre_prog)
+            mmre_evals.append(len_mre_train_set + len(validation_set) + 10)
+            size_of_test_set.append(len(train_set) + len(test_set))
 
+        stats_dict[file]["rank_diff"] = mmre_rank_diffs
+        stats_dict[file]["evals"] = mmre_evals
+        stats_dict[file]["testsize"] = size_of_test_set
 
-    import pickle
-    pickle.dump(evals_dict, open("./PickleLocker/Progressive_Rank_Evals.p", "w"))
-    pickle.dump(rank_diffs_dict, open("./PickleLocker/Progressive_Rank_Rank_Diff.p", "w"))
-    pickle.dump(stats_dict, open("./PickleLocker/Progressive_Rank_Stats.p", "w"))
+        print " | Total Time: ", time.time() - initial_time
 
+        pickle.dump(stats_dict, open("./PickleLocker/Residual_Stats_" + file.split('/')[-1] + ".p", "w"))
 
 
 

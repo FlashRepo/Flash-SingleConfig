@@ -6,6 +6,7 @@ from random import shuffle
 from sklearn.tree import DecisionTreeRegressor
 from policies import policy1, policy2
 import numpy as np
+import pickle
 
 
 class solution_holder:
@@ -23,9 +24,9 @@ def get_data(filename, initial_size):
     :return: Training and Testing
     """
     pdcontent = pd.read_csv(filename)
-    indepcolumns = [col for col in pdcontent.columns if "$<" not in col]
-    depcolumns = [col for col in pdcontent.columns if "$<" in col]
-    sortpdcontent = pdcontent.sort_values(by=depcolumns[-1])
+    indepcolumns = [col for col in pdcontent.columns if "<$" not in col]
+    depcolumns = [col for col in pdcontent.columns if "<$" in col]
+    sortpdcontent = pdcontent.sort(depcolumns[-1])
     ranks = {}
     for i, item in enumerate(sorted(set(sortpdcontent[depcolumns[-1]].tolist()))):
         ranks[item] = i
@@ -41,7 +42,7 @@ def get_data(filename, initial_size):
                        )
 
     shuffle(content)
-    indexes = range(len(content))
+    indexes = range(int(len(content) * 0.8))  # for experiments described in the paper
     train_indexes, test_indexes = indexes[:initial_size],  indexes[initial_size:]
     assert(len(train_indexes) + len(test_indexes) == len(indexes)), "Something is wrong"
     train_set = [content[i] for i in train_indexes]
@@ -100,36 +101,31 @@ def wrapper_run_active_learning(filename, initial_size):
     global_min = min([t.objective[-1] for t in training_set + testing_set])
     best_training_solution = [ tt.rank for tt in training_set if min([t.objective[-1] for t in training_set]) == tt.objective[-1]]
     best_solution = [tt.rank for tt in training_set + testing_set if tt.objective[-1] == global_min]
-    print (min(best_training_solution) - min(best_solution)), len(training_set), " | ",
-    return (min(best_training_solution) - min(best_solution)), len(training_set)
+    return [(min(best_training_solution) - min(best_solution)), len(training_set), len(training_set) + len(testing_set)]
 
 if __name__ == "__main__":
-    filenames = ["./Data/"+f for f in listdir("./Data")]
+    import time
+    filenames = ["./Data/"+f for f in listdir("./Data") if '.csv' in f]
     initial_size = 20
-    evals_dict = {}
-    rank_diffs_dict = {}
     stats_dict = {}
     for filename in filenames:
-        evals_dict[filename] = []
-        rank_diffs_dict[filename] = []
+        initial_time = time.time()
         stats_dict[filename] = {}
         rank_diffs = []
         evals = []
-        print filename
-        for _ in xrange(20):
-            temp1, temp2 = wrapper_run_active_learning(filename, initial_size)
-            rank_diffs.append(temp1)
-            evals.append(temp2)
-        print
-        evals_dict[filename] = evals
-        rank_diffs_dict[filename] = rank_diffs
-        stats_dict[filename]["mean_rank_diff"] = np.mean(rank_diffs)
-        stats_dict[filename]["std_rank_diff"] = np.std(rank_diffs)
-        stats_dict[filename]["mean_evals"] = np.mean(evals)
-        stats_dict[filename]["std_evals"] = np.std(evals)
+        size_of_test_set = []
+        print filename + " | ",
+        for _ in xrange(30):
+            print "+ ",
+            return_vals = wrapper_run_active_learning(filename, initial_size)
+            rank_diffs.append(return_vals[0])
+            evals.append(return_vals[1])
+            size_of_test_set.append(return_vals[2])
+        stats_dict[filename]["rank_diff"] = rank_diffs
+        stats_dict[filename]["evals"] = evals
+        stats_dict[filename]["testsize"] = size_of_test_set
 
-    import pickle
-    pickle.dump(evals_dict, open("./PickleLocker/ActiveLearning_Evals.p", "w"))
-    pickle.dump(rank_diffs_dict, open("./PickleLocker/ActiveLearning_Rank_Diff.p", "w"))
-    pickle.dump(stats_dict, open("./PickleLocker/ActiveLearning_Stats.p", "w"))
+        print " | Total Time: ", time.time() - initial_time
+
+        pickle.dump(stats_dict, open("./PickleLocker/Flash_Stats_" + filename.split('/')[-1] + ".p", "w"))
 
