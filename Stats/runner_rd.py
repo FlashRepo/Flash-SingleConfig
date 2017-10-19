@@ -22,9 +22,10 @@ for f in files:
 names = sorted(residual.keys())
 data = []
 data1 = []
-names = ['SS-A2', 'SS-C1', 'SS-C2', 'SS-E2', 'SS-J1', 'SS-J2', 'SS-K1', 'SS-M2', 'SS-O2']
+names = ['SS-A2', 'SS-C1', 'SS-C2', 'SS-E2', 'SS-J1', 'SS-J2', 'SS-K1',]
 
 for name in names:
+    # print name
     key = './Data/' + name + '.csv'
     res = ['Residual-based'] + pickle.load( open(residual[name], "rb" ) )[key]['rank_diff']
     rnk = ['Rank-based'] + pickle.load( open( rank[name], "rb" ) )[key]['rank_diff']

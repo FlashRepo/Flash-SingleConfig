@@ -49,7 +49,7 @@ top = bottom + height
 f, ((ax1, ax2, ax3)) = plt.subplots(1, 3)
 
 ax1.scatter([gap*(i+1) for i in xrange(len(data))], [d[1] for d in data], marker='v', color='#228B22')
-ax1.set_xlim(10, 1020)
+ax1.set_xlim(10, 1070)
 ax1.set_ylim(-2, 70)
 ax1.tick_params(axis=u'both', which=u'both',length=0)
 ax1.set_title('Residual-based', fontsize=16)
@@ -58,14 +58,14 @@ ax1.set_ylabel("Rank Difference (RD)", fontsize=16)
 
 
 ax2.scatter([gap*(i+1) for i in xrange(len(data))], [d[2] for d in data], marker='v', color='#228B22')
-ax2.set_xlim(10, 1020)
+ax2.set_xlim(10, 1070)
 ax2.set_ylim(-2, 70)
 ax2.tick_params(axis=u'both', which=u'both',length=0)
 ax2.set_title('Rank-based', fontsize=16)
 ax2.set_ylabel("Rank Difference (RD)", fontsize=16)
 
 ax3.scatter([gap*(i+1) for i in xrange(len(data))], [d[3] if d[3] < 20 else 16 for d in data], marker='v', color='#228B22')
-ax3.set_xlim(10, 1020)
+ax3.set_xlim(10, 1070)
 ax3.set_ylim(-2, 70)
 ax3.tick_params(axis=u'both', which=u'both',length=0)
 ax3.set_title('Flash', fontsize=16)

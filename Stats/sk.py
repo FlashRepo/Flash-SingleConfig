@@ -586,7 +586,7 @@ def rdivDemo(name, raw_data, isLatex=False, globalMinMax=True, high=1, low=0):
       pre = ""
       if not last is None and not last == x.rank:
         pre = "\\hline"
-      print pre, r'%2s & %12s &    %s  &  %s & \quart{%s}{%s}{%s}{0} \\' % \
+      print pre, r'%2s & %12s &    %s  &  %s & \quart{%s}{%s}{%s} \\' % \
           (x.rank + 1,
            x.name,
            float(q2 / 100),

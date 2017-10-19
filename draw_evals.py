@@ -94,7 +94,7 @@ ind = np.arange(space, space*(len(data)+1), space)  # the x locations for the gr
 width = 1.5        # the width of the bars
 
 fig, ax = plt.subplots()
-ax.plot([i for i in xrange(3, 140)], [100 for _ in xrange(3, 140)], linestyle='--', color='black', label='Residual-based')
+ax.plot([i for i in xrange(3, 155)], [100 for _ in xrange(3, 155)], linestyle='--', color='black', label='Residual-based')
 rects1 = ax.bar(ind, rank_evals, width, color='#f0f0f0', label='Rank-based')
 # r1 = ax.bar(ind, size_evals, width, color='y', bottom=residual_evals)
 
@@ -110,7 +110,7 @@ ax.set_ylabel('Evaluations as % of Projective Sampling')
 ax.set_xticks(ind + 2*width / 2)
 ax.set_xticklabels([x[0] for x in data], rotation='vertical')
 
-ax.set_xlim(3, 140)
+ax.set_xlim(3, 155)
 # ax.set_ylim(1, 1000)
 
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3, fancybox=True, frameon=False)
