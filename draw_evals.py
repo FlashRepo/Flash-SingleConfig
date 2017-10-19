@@ -122,4 +122,4 @@ print labels
 
 fig.set_size_inches(14, 5)
 # plt.show()
-plt.savefig('figure6c.png', bbox_inches='tight')
+plt.savefig('one_obj_evals.eps', bbox_inches='tight')

@@ -630,5 +630,5 @@ def rdivDemo(name, raw_data, isLatex=False, globalMinMax=True, high=1, low=0):
           xtile(x.all, lo=lo, hi=hi, width=30)
       last = x.rank
     # print temp['rank-baseds'], temp['random-progressive'], temp['sarkar-projective']
-    for d in raw_data: print d
+    # for d in raw_data: print d
     return ranks

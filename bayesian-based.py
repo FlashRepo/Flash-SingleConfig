@@ -67,7 +67,7 @@ def get_best_configuration_id(train, test):
     return best_index
 
 
-def run_active_learning(filename, initial_size, max_lives=10):
+def run_active_learning(filename, initial_size, max_lives=20):
     steps = 0
     lives = max_lives
     training_set, testing_set = get_data(filename, initial_size)
@@ -112,8 +112,10 @@ if __name__ == "__main__":
         #  './Data/SS-F1.csv', './Data/SS-F2.csv', './Data/SS-G1.csv', './Data/SS-G2.csv', './Data/SS-H1.csv',
         #  './Data/SS-H2.csv', './Data/SS-I1.csv', './Data/SS-I2.csv', './Data/SS-J1.csv', './Data/SS-J2.csv',
         #  './Data/SS-K1.csv', './Data/SS-K2.csv', './Data/SS-L1.csv', './Data/SS-L2.csv',
-        './Data/SS-M1.csv',
-        './Data/SS-M2.csv', './Data/SS-N1.csv', './Data/SS-N2.csv', './Data/SS-O1.csv', './Data/SS-O2.csv']
+        # './Data/SS-M1.csv',
+        './Data/SS-M2.csv', './Data/SS-N1.csv',
+        # './Data/SS-N2.csv', './Data/SS-O1.csv', './Data/SS-O2.csv'
+        ]
     initial_size = 20
     stats_dict = {}
     for filename in filenames:
